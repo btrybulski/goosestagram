@@ -15,7 +15,7 @@
       "title": "Bongo Bongo Bongo",
       "body": "This may be controversial...",
       "images": [],
-      "is_pinned": false
+      "is_pinned": true
     },
     {
       "title": "yo yo",
@@ -26,6 +26,18 @@
     {
       "title": "nice",
       "body": "not much",
+      "images": [],
+      "is_pinned": true
+    },
+    {
+      "title": "hey",
+      "body": "hi",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "yessssssssssssss",
+      "body": "yes",
       "images": [],
       "is_pinned": false
     }
