@@ -37,7 +37,6 @@ export default function Home() {
     <div className="max-w-4xl mx-auto p-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">Profile</h1>
         <div className="flex gap-3">
           <button
             onClick={() => setShowNewPostForm(!showNewPostForm)}
