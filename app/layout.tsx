@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Goosestagram",
-  description: "It's Instagram, but for Geese!",
+  description: "It's Instagram, but for geese!",
 };
 
 export default function RootLayout({
