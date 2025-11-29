@@ -1,8 +1,8 @@
 {
-  "username": "benben",
-  "display_name": "Ben Try",
+  "username": "ben",
+  "display_name": "Ben",
   "profile_photo": "ben.png",
-  "bio": "yes sir!",
+  "bio": "",
   "links": {
     "website": "https://google.com",
     "linkedin": "https://linkedin.com",
@@ -20,6 +20,12 @@
     {
       "title": "yo yo",
       "body": "what's up?",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "nice",
+      "body": "not much",
       "images": [],
       "is_pinned": false
     }
