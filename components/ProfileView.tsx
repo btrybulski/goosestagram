@@ -1,5 +1,5 @@
 // components/ProfileView.tsx
-import Profile from "@/types/profile";
+import { Profile } from "@/types/profile";
 
 interface ProfileViewProps {
   profile: Profile;
@@ -31,14 +31,11 @@ export default function ProfileView({ profile }: ProfileViewProps) {
             <p className="text-gray-600">@{profile.username}</p>
           </div>
         </div>
-        <p className="text-lg">{profile.bio}</p>
-      </div>
+        <p className="text-lg mb-3">{profile.bio}</p>
 
-      {/* Links */}
-      {links.length > 0 && (
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Links</h3>
-          <div className="flex flex-wrap gap-2 items-center">
+        {/* Links inside profile box */}
+        {links.length > 0 && (
+          <div className="flex flex-wrap gap-2 items-center mt-4 pt-4 border-t">
             {links.map((link, idx) => (
               <span key={link.label} className="flex items-center">
                 <a
@@ -55,8 +52,8 @@ export default function ProfileView({ profile }: ProfileViewProps) {
               </span>
             ))}
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Posts */}
       <div>

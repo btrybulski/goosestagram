@@ -1,5 +1,5 @@
 // components/ProfileEdit.tsx
-import Profile from "@/types/profile";
+import { Profile } from "@/types/profile";
 
 interface ProfileEditProps {
   profile: Profile;

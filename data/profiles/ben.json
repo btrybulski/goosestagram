@@ -1,5 +1,5 @@
 {
-  "username": "ben",
+  "username": "benben",
   "display_name": "Ben Try",
   "profile_photo": "ben.png",
   "bio": "yes sir!",
@@ -7,7 +7,7 @@
     "website": "https://google.com",
     "linkedin": "https://linkedin.com",
     "facebook": "https://facebook.com",
-    "youtube": "https://youtube.com",
+    "youtube": "https://youtube.com/",
     "x": "https://x.com/ben"
   },
   "posts": [
@@ -38,6 +38,66 @@
     {
       "title": "New Post",
       "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "New Post",
+      "body": "Write something here...",
+      "images": [],
+      "is_pinned": false
+    },
+    {
+      "title": "yo yo",
+      "body": "what's up?",
       "images": [],
       "is_pinned": false
     }
