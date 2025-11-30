@@ -4,6 +4,7 @@ export interface Profile {
   display_name: string;
   profile_photo: string;
   bio: string;
+  theme?: "light" | "dark" | "colorful";
   links: {
     website: string;
     linkedin: string;

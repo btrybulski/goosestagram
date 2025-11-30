@@ -9,15 +9,33 @@ export function useProfile() {
   useEffect(() => {
     const eventSource = new EventSource("/api/stream");
     eventSource.onmessage = (event) => {
-      setData(JSON.parse(event.data));
+      const profile = JSON.parse(event.data);
+      setData(profile);
+
+      // Apply theme from profile
+      applyTheme(profile.theme || "light");
     };
     return () => eventSource.close();
   }, []);
+
+  const applyTheme = (theme: string) => {
+    document.documentElement.classList.remove("dark", "colorful");
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (theme === "colorful") {
+      document.documentElement.classList.add("colorful");
+    }
+  };
 
   const updateProfile = (updates: Partial<Profile>) => {
     if (!data) return;
     const newData = { ...data, ...updates };
     setData(newData);
+
+    // Apply theme immediately if it was updated
+    if (updates.theme) {
+      applyTheme(updates.theme);
+    }
 
     if (debounceTimer.current) {
       clearTimeout(debounceTimer.current);
