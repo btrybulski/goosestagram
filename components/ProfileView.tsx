@@ -7,12 +7,14 @@ interface ProfileViewProps {
   profile: Profile;
   onCreatePost: () => void;
   onTogglePin: (index: number) => void;
+  onReorder: (newPosts: Profile["posts"]) => void;
 }
 
 export default function ProfileView({
   profile,
   onCreatePost,
   onTogglePin,
+  onReorder,
 }: ProfileViewProps) {
   return (
     <div className="space-y-6">
@@ -21,6 +23,7 @@ export default function ProfileView({
         posts={profile.posts}
         onCreatePost={onCreatePost}
         onTogglePin={onTogglePin}
+        onReorder={onReorder}
       />
     </div>
   );

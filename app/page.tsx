@@ -42,6 +42,11 @@ export default function Home() {
     updateProfile({ posts: updatedPosts });
   };
 
+  const handleReorderPosts = (newPosts: typeof data.posts) => {
+    if (!data) return;
+    updateProfile({ posts: newPosts });
+  };
+
   if (!data) return <div className="p-8">Loading...</div>;
 
   return (
@@ -65,6 +70,7 @@ export default function Home() {
             profile={data}
             onCreatePost={() => setShowNewPostForm(true)}
             onTogglePin={handleTogglePin}
+            onReorder={handleReorderPosts}
           />
         )}
       </div>
