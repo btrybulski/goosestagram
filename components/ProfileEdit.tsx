@@ -11,6 +11,7 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
   const [showImport, setShowImport] = useState(false);
   const [importText, setImportText] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const photoInputRef = useRef<HTMLInputElement>(null);
 
   const handleExport = () => {
     const dataStr = JSON.stringify(profile, null, 2);
@@ -53,6 +54,17 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
     }
   };
 
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        onUpdate({ profile_photo: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -81,15 +93,59 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
           className="w-full p-2 border rounded h-24"
         />
       </div>
+
+      {/* Profile Photo Upload */}
       <div>
-        <label className="block mb-2 font-semibold">Profile Photo URL</label>
+        <label className="block mb-2 font-semibold">Profile Photo</label>
         <input
-          type="text"
-          value={profile.profile_photo}
-          onChange={(e) => onUpdate({ profile_photo: e.target.value })}
-          className="w-full p-2 border rounded"
+          ref={photoInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handlePhotoUpload}
+          className="hidden"
         />
+        <div
+          onClick={() => photoInputRef.current?.click()}
+          className="w-32 h-32 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-gray-50 transition-colors overflow-hidden bg-gray-100"
+        >
+          {profile.profile_photo ? (
+            <img
+              src={profile.profile_photo}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-center text-gray-500">
+              <svg
+                className="mx-auto h-12 w-12"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+            </div>
+          )}
+        </div>
+        {profile.profile_photo && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onUpdate({ profile_photo: "" });
+              if (photoInputRef.current) photoInputRef.current.value = "";
+            }}
+            className="mt-2 text-sm text-red-500 hover:text-red-700"
+          >
+            Remove photo
+          </button>
+        )}
       </div>
+
       <div>
         <h2 className="text-2xl font-semibold mb-4">Links</h2>
         <div className="space-y-3">
@@ -183,7 +239,6 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
           <div className="border rounded-lg p-4 bg-gray-50">
             <h3 className="font-semibold mb-3">Import Profile</h3>
 
-            {/* File Upload */}
             <div className="mb-4">
               <label className="block mb-2 text-sm">Upload JSON File</label>
               <input
@@ -195,14 +250,12 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
               />
             </div>
 
-            {/* Or Divider */}
             <div className="flex items-center gap-2 my-4">
               <div className="flex-1 border-t"></div>
               <span className="text-sm text-gray-500">OR</span>
               <div className="flex-1 border-t"></div>
             </div>
 
-            {/* Text Input */}
             <div>
               <label className="block mb-2 text-sm">Paste JSON</label>
               <textarea
