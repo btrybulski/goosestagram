@@ -32,22 +32,26 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
   };
 
   return (
-    <div className="mb-6 border rounded-lg p-6 bg-white shadow-sm max-w-2xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">New Post</h2>
+    <div className="mb-6 border rounded-lg p-4 sm:p-6 bg-white shadow-sm max-w-2xl mx-auto">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4">New Post</h2>
       <div className="space-y-4">
         <div>
-          <label className="block mb-2 font-semibold">Title</label>
+          <label className="block mb-2 font-semibold text-sm sm:text-base">
+            Title
+          </label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-sm sm:text-base"
             placeholder="Post title"
           />
         </div>
 
         <div>
-          <label className="block mb-2 font-semibold">Image</label>
+          <label className="block mb-2 font-semibold text-sm sm:text-base">
+            Image
+          </label>
           <input
             ref={fileInputRef}
             type="file"
@@ -57,7 +61,7 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
           />
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="w-full h-64 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-gray-50 transition-colors overflow-hidden"
+            className="w-full h-48 sm:h-64 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-gray-50 transition-colors overflow-hidden"
           >
             {image ? (
               <img
@@ -66,9 +70,9 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div className="text-center text-gray-500">
+              <div className="text-center text-gray-500 px-4">
                 <svg
-                  className="mx-auto h-12 w-12 mb-2"
+                  className="mx-auto h-10 sm:h-12 w-10 sm:w-12 mb-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -80,7 +84,7 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
                     d="M12 4v16m8-8H4"
                   />
                 </svg>
-                <p className="text-sm">Click to upload an image</p>
+                <p className="text-xs sm:text-sm">Click to upload an image</p>
                 <p className="text-xs mt-1">PNG, JPG, GIF up to 10MB</p>
               </div>
             )}
@@ -92,7 +96,7 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
                 setImage("");
                 if (fileInputRef.current) fileInputRef.current.value = "";
               }}
-              className="mt-2 text-sm text-red-500 hover:text-red-700"
+              className="mt-2 text-xs sm:text-sm text-red-500 hover:text-red-700"
             >
               Remove image
             </button>
@@ -100,25 +104,27 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
         </div>
 
         <div>
-          <label className="block mb-2 font-semibold">Body</label>
+          <label className="block mb-2 font-semibold text-sm sm:text-base">
+            Body
+          </label>
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="w-full p-2 border rounded h-32"
+            className="w-full p-2 border rounded h-24 sm:h-32 text-sm sm:text-base"
             placeholder="What's on your mind?"
           />
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={handleSubmit}
-            className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="w-full sm:w-auto px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
           >
             Create Post
           </button>
           <button
             onClick={onCancel}
-            className="px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            className="w-full sm:w-auto px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
           >
             Cancel
           </button>

@@ -36,7 +36,7 @@ function PostCard({
 }) {
   return (
     <div
-      className={`border p-4 rounded mb-3 bg-white shadow-sm hover:bg-gray-50 flex justify-between items-start ${
+      className={`border p-3 sm:p-4 rounded mb-3 bg-white shadow-sm hover:bg-gray-50 flex flex-col sm:flex-row justify-between items-start ${
         isDraggable ? "cursor-move" : ""
       }`}
       draggable={isDraggable}
@@ -45,20 +45,20 @@ function PostCard({
       onDrop={isDraggable ? (e) => onDrop?.(e, index) : undefined}
       onDragEnd={isDraggable ? onDragEnd : undefined}
     >
-      <div className="flex justify-start flex-1">
+      <div className="flex flex-col sm:flex-row justify-start flex-1 w-full">
         {isDraggable && (
-          <div className="mr-3 text-gray-400 flex items-center">
+          <div className="mr-0 sm:mr-3 mb-2 sm:mb-0 text-gray-400 flex items-center justify-center sm:justify-start">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"></path>
             </svg>
           </div>
         )}
         {post.image && (
-          <div className="mr-8 flex-shrink-0">
+          <div className="mb-3 sm:mb-0 sm:mr-8 flex-shrink-0 w-full sm:w-auto">
             <img
               src={post.image}
               alt=""
-              className="w-60 h-auto rounded object-cover"
+              className="w-full sm:w-60 h-auto rounded object-cover"
             />
           </div>
         )}
@@ -68,13 +68,13 @@ function PostCard({
               📌 Pinned
             </span>
           )}
-          <h4 className="font-semibold text-lg">{post.title}</h4>
-          <p className="mt-2 text-gray-700">{post.body}</p>
+          <h4 className="font-semibold text-base sm:text-lg">{post.title}</h4>
+          <p className="mt-2 text-sm sm:text-base text-gray-700">{post.body}</p>
         </div>
       </div>
       <button
         onClick={() => onTogglePin(index)}
-        className={`ml-4 px-3 py-1 text-sm rounded flex-shrink-0 ${
+        className={`mt-3 sm:mt-0 sm:ml-4 px-3 py-1 text-sm rounded flex-shrink-0 w-full sm:w-auto ${
           post.is_pinned
             ? "bg-gray-200 hover:bg-gray-300 text-gray-700"
             : "bg-yellow-100 hover:bg-yellow-200 text-yellow-800"
