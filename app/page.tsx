@@ -124,12 +124,14 @@ export default function Home() {
         ) : isEditing ? (
           <ProfileEdit profile={data} onUpdate={updateProfile} />
         ) : (
-          <ProfileView
-            profile={data}
-            onCreatePost={() => setShowNewPostForm(true)}
-            onTogglePin={handleTogglePin}
-            onReorder={handleReorderPosts}
-          />
+          <div className="space-y-8">
+            <ProfileView
+              profile={data}
+              onCreatePost={() => setShowNewPostForm(true)}
+              onTogglePin={handleTogglePin}
+              onReorder={handleReorderPosts}
+            />
+          </div>
         )}
       </div>
     </div>

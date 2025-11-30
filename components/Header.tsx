@@ -1,4 +1,3 @@
-// components/Header.tsx
 interface HeaderProps {
   onNewPost: () => void;
   onSettings: () => void;
@@ -13,20 +12,22 @@ export default function Header({
   isEditing,
 }: HeaderProps) {
   return (
-    <header className="border-b bg-white sticky top-0 z-10 shadow-sm">
+    <header className="border-b bg-white sticky top-0 z-10 shadow-md">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center">
         <div className="flex items-center gap-2 sm:gap-3">
           <img
             src="/favicon.ico"
             alt="Logo"
-            className="w-6 h-6 sm:w-8 sm:h-8"
+            className="w-7 h-7 sm:w-9 sm:h-9"
           />
-          <h1 className="text-xl sm:text-3xl font-bold">Goosestagram</h1>
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Goosestagram
+          </h1>
         </div>
         <div className="flex gap-2 sm:gap-3">
           <button
             onClick={onNewPost}
-            className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-green-500 text-white rounded hover:bg-green-600"
+            className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 shadow-sm transition-all font-medium"
           >
             {showNewPostForm ? (
               "Cancel"
@@ -37,7 +38,7 @@ export default function Header({
           </button>
           <button
             onClick={onSettings}
-            className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 shadow-sm transition-all font-medium"
           >
             {isEditing ? (
               "Done"
