@@ -12,8 +12,8 @@ export default function Header({
   isEditing,
 }: HeaderProps) {
   return (
-    <header className="border-b bg-white sticky top-0 z-10 shadow-md">
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center">
+    <header className="bg-white sticky top-0 z-50 shadow-md">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex justify-between items-center">
         <div className="flex items-center gap-2 sm:gap-3">
           <img
             src="/favicon.ico"
@@ -25,17 +25,22 @@ export default function Header({
           </h1>
         </div>
         <div className="flex gap-2 sm:gap-3">
-          <button
-            onClick={onNewPost}
-            className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 shadow-sm transition-all font-medium"
-          >
-            {showNewPostForm ? (
-              "Cancel"
-            ) : (
+          {showNewPostForm ? (
+            <button
+              onClick={onNewPost}
+              className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-red-500 text-white rounded-lg hover:bg-red-700 shadow-sm transition-all font-medium"
+            >
+              Cancel
+            </button>
+          ) : (
+            <button
+              onClick={onNewPost}
+              className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 shadow-sm transition-all font-medium"
+            >
               <span className="hidden sm:inline">+ New Post</span>
-            )}
-            <span className="sm:hidden">+</span>
-          </button>
+              <span className="sm:hidden">+</span>
+            </button>
+          )}
           <button
             onClick={onSettings}
             className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 shadow-sm transition-all font-medium"

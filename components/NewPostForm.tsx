@@ -120,11 +120,11 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
             onClick={handleSubmit}
             className="w-full sm:w-auto px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
           >
-            Create Post
+            Create
           </button>
           <button
             onClick={onCancel}
-            className="w-full sm:w-auto px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            className="w-full sm:w-auto px-6 py-2 bg-red-500 text-white rounded hover:bg-gray-600"
           >
             Cancel
           </button>
