@@ -32,6 +32,16 @@ export default function Home() {
     setShowNewPostForm(false);
   };
 
+  const handleTogglePin = (index: number) => {
+    if (!data) return;
+
+    const updatedPosts = data.posts.map((post, i) =>
+      i === index ? { ...post, is_pinned: !post.is_pinned } : post,
+    );
+
+    updateProfile({ posts: updatedPosts });
+  };
+
   if (!data) return <div className="p-8">Loading...</div>;
 
   return (
@@ -43,17 +53,19 @@ export default function Home() {
         isEditing={isEditing}
       />
       <div className="max-w-4xl mx-auto p-8">
-        {/* New Post Form */}
         {showNewPostForm ? (
           <NewPostForm
             onSubmit={handleCreatePost}
             onCancel={() => setShowNewPostForm(false)}
           />
-        ) : /* Content */
-        isEditing ? (
+        ) : isEditing ? (
           <ProfileEdit profile={data} onUpdate={updateProfile} />
         ) : (
-          <ProfileView profile={data} />
+          <ProfileView
+            profile={data}
+            onCreatePost={() => setShowNewPostForm(true)}
+            onTogglePin={handleTogglePin}
+          />
         )}
       </div>
     </div>

@@ -9,13 +9,11 @@ interface HeaderProps {
 export default function Header({
   onNewPost,
   onSettings,
-  onExport,
-  onImport,
   showNewPostForm,
   isEditing,
 }: HeaderProps) {
   return (
-    <header className="bg-blue-50 sticky top-0 z-10 shadow-sm">
+    <header className="border-b bg-white sticky top-0 z-10 shadow-sm">
       <div className="max-w-4xl mx-auto px-8 py-4 flex justify-between items-center">
         <h1 className="text-3xl font-bold">Goosestagram</h1>
         <div className="flex gap-3">

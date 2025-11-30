@@ -1,10 +1,11 @@
-import Image from "next/image";
+// components/ProfileInfo.tsx
+import { Profile } from "@/types/profile";
 
-interface ProfileViewProps {
+interface ProfileInfoProps {
   profile: Profile;
 }
 
-export default function ProfileInfo({ profile }: ProfileViewProps) {
+export default function ProfileInfo({ profile }: ProfileInfoProps) {
   const links = [
     { label: "Website", url: profile.links.website },
     { label: "LinkedIn", url: profile.links.linkedin },
@@ -20,8 +21,6 @@ export default function ProfileInfo({ profile }: ProfileViewProps) {
           <img
             src={profile.profile_photo}
             alt={profile.display_name}
-            width={48}
-            height={48}
             className="w-20 h-20 rounded-full object-cover"
           />
         )}
@@ -32,7 +31,6 @@ export default function ProfileInfo({ profile }: ProfileViewProps) {
       </div>
       <p className="text-lg mb-3">{profile.bio}</p>
 
-      {/* Links inside profile box */}
       {links.length > 0 && (
         <div className="flex flex-wrap gap-2 items-center mt-4 pt-4 border-t">
           {links.map((link, idx) => (

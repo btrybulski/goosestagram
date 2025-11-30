@@ -1,6 +1,6 @@
 // hooks/useProfile.ts
 import { useState, useEffect, useRef } from "react";
-import Profile from "@/types/profile";
+import { Profile } from "@/types/profile";
 
 export function useProfile() {
   const [data, setData] = useState<Profile | null>(null);

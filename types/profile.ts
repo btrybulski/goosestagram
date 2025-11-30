@@ -1,4 +1,5 @@
-export default interface Profile {
+// types/profile.ts
+export interface Profile {
   username: string;
   display_name: string;
   profile_photo: string;

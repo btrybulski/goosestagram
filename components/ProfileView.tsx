@@ -1,17 +1,27 @@
 // components/ProfileView.tsx
-import Profile from "@/types/profile";
+import { Profile } from "@/types/profile";
 import ProfileInfo from "./ProfileInfo";
 import PostsFeed from "./PostsFeed";
 
 interface ProfileViewProps {
   profile: Profile;
+  onCreatePost: () => void;
+  onTogglePin: (index: number) => void;
 }
 
-export default function ProfileView({ profile }: ProfileViewProps) {
+export default function ProfileView({
+  profile,
+  onCreatePost,
+  onTogglePin,
+}: ProfileViewProps) {
   return (
     <div className="space-y-6">
       <ProfileInfo profile={profile} />
-      <PostsFeed profile={profile} />
+      <PostsFeed
+        posts={profile.posts}
+        onCreatePost={onCreatePost}
+        onTogglePin={onTogglePin}
+      />
     </div>
   );
 }

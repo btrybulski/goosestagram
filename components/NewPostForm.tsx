@@ -35,7 +35,6 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
     <div className="mb-6 border rounded-lg p-6 bg-white shadow-sm max-w-2xl mx-auto">
       <h2 className="text-2xl font-semibold mb-4">New Post</h2>
       <div className="space-y-4">
-        {/* Title */}
         <div>
           <label className="block mb-2 font-semibold">Title</label>
           <input
@@ -47,7 +46,6 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
           />
         </div>
 
-        {/* Image Upload Area */}
         <div>
           <label className="block mb-2 font-semibold">Image</label>
           <input
@@ -101,7 +99,6 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
           )}
         </div>
 
-        {/* Body */}
         <div>
           <label className="block mb-2 font-semibold">Body</label>
           <textarea
@@ -112,7 +109,6 @@ export default function NewPostForm({ onSubmit, onCancel }: NewPostFormProps) {
           />
         </div>
 
-        {/* Buttons */}
         <div className="flex gap-3">
           <button
             onClick={handleSubmit}
