@@ -3,17 +3,19 @@ import { useState, useEffect, useRef } from "react";
 import { Profile } from "@/types/profile";
 
 export function useProfile() {
-  const [data, setData] = useState<Profile | null>(null);
+  const [data, setData] = useState<Profile | null | undefined>(undefined);
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const eventSource = new EventSource("/api/stream");
     eventSource.onmessage = (event) => {
-      const profile = JSON.parse(event.data);
-      setData(profile);
+      const profileData = event.data === "null" ? null : JSON.parse(event.data);
+      setData(profileData);
 
-      // Apply theme from profile
-      applyTheme(profile.theme || "light");
+      // Apply theme from profile if it exists
+      if (profileData) {
+        applyTheme(profileData.theme || "light");
+      }
     };
     return () => eventSource.close();
   }, []);

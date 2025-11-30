@@ -1,51 +1,59 @@
-// app/api/stream/route.js
 import fs from "fs";
 import path from "path";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req) {
-  const filePath = path.join(process.cwd(), "data", "ben.json");
+export async function GET(req: Request) {
+  const filePath = path.join(process.cwd(), "data", "profiles", "ben.json");
 
-  let watcher;
-
-  const stream = new TransformStream();
-  const writer = stream.writable.getWriter();
   const encoder = new TextEncoder();
 
-  const sendData = async () => {
-    try {
-      const data = fs.readFileSync(filePath, "utf8");
-      const compactJSON = JSON.stringify(JSON.parse(data));
-      const message = `data: ${compactJSON}\n\n`;
-      await writer.write(encoder.encode(message));
-    } catch (err) {
-      console.error("Error:", err);
-    }
-  };
+  const stream = new ReadableStream({
+    start(controller) {
+      const sendData = () => {
+        try {
+          // Check if file exists
+          if (!fs.existsSync(filePath)) {
+            // Send null to indicate no profile
+            controller.enqueue(encoder.encode(`data: null\n\n`));
+            return;
+          }
 
-  // Send initial data
-  sendData();
+          const data = fs.readFileSync(filePath, "utf8");
+          // Compress to single line for SSE
+          const compactJSON = JSON.stringify(JSON.parse(data));
+          const message = `data: ${compactJSON}\n\n`;
+          controller.enqueue(encoder.encode(message));
+        } catch (err) {
+          console.error("Error:", err);
+          controller.enqueue(encoder.encode(`data: null\n\n`));
+        }
+      };
 
-  // Watch for changes
-  watcher = fs.watch(filePath, (eventType) => {
-    if (eventType === "change") {
       sendData();
-    }
+
+      // Watch for changes only if file exists
+      let watcher: fs.FSWatcher | null = null;
+      if (fs.existsSync(filePath)) {
+        watcher = fs.watch(filePath, (eventType) => {
+          if (eventType === "change") {
+            sendData();
+          }
+        });
+      }
+
+      req.signal.addEventListener("abort", () => {
+        watcher?.close();
+        controller.close();
+      });
+    },
   });
 
-  // Cleanup on abort
-  req.signal.addEventListener("abort", () => {
-    watcher?.close();
-    writer.close();
-  });
-
-  return new Response(stream.readable, {
+  return new Response(stream, {
     headers: {
       "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache, no-transform",
+      "Cache-Control": "no-cache",
       Connection: "keep-alive",
-      "X-Accel-Buffering": "no",
     },
   });
 }

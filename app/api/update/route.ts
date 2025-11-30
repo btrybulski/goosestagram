@@ -6,10 +6,8 @@ import { NextRequest } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const filePath = path.join(process.cwd(), "data", "ben.json");
+    const filePath = path.join(process.cwd(), "data", "profiles", "ben.json");
 
-    // Write with pretty formatting (2 spaces)
-    // Note: SSE will compress it to single line when streaming
     fs.writeFileSync(filePath, JSON.stringify(body, null, 2));
 
     return Response.json({ success: true });

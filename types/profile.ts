@@ -5,6 +5,7 @@ export interface Profile {
   profile_photo: string;
   bio: string;
   theme?: "light" | "dark" | "colorful";
+  onboarding_completed?: boolean;
   links: {
     website: string;
     linkedin: string;
