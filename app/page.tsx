@@ -15,7 +15,7 @@ export default function Home() {
   const handleCreatePost = (post: {
     title: string;
     body: string;
-    images: string[];
+    image: string;
   }) => {
     if (!data) return;
 

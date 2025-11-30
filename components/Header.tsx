@@ -9,6 +9,8 @@ interface HeaderProps {
 export default function Header({
   onNewPost,
   onSettings,
+  onExport,
+  onImport,
   showNewPostForm,
   isEditing,
 }: HeaderProps) {

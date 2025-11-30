@@ -5,7 +5,7 @@ import path from "path";
 export const dynamic = "force-dynamic";
 
 export async function GET(req) {
-  const filePath = path.join(process.cwd(), "data", "profiles", "ben.json");
+  const filePath = path.join(process.cwd(), "data", "ben.json");
 
   let watcher;
 

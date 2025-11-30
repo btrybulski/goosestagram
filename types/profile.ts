@@ -13,7 +13,7 @@ export default interface Profile {
   posts: Array<{
     title: string;
     body: string;
-    images: string[];
+    image: string;
     is_pinned: boolean;
   }>;
 }

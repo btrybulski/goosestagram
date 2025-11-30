@@ -1,5 +1,5 @@
 // components/ProfileEdit.tsx
-import { Profile } from "@/types/profile";
+import Profile from "@/types/profile";
 
 interface ProfileEditProps {
   profile: Profile;
@@ -121,6 +121,14 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
               className="w-full p-2 border rounded"
             />
           </div>
+        </div>
+        <div className="py-8">
+          <button className="mr-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            Export
+          </button>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            Import
+          </button>
         </div>
       </div>
     </div>
