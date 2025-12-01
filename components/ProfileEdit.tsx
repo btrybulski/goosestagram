@@ -239,9 +239,9 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
                 }
                 className={`w-full p-2 border-2 rounded transition-colors ${
                   profile.links.website && !isValidUrl(profile.links.website)
-                    ? "border-red-400 bg-red-50"
+                    ? "border-red-400 bg-red-50 text-red-900"
                     : profile.links.website
-                      ? "border-green-400 bg-green-50"
+                      ? "border-green-400 bg-green-50 text-green-900"
                       : "border-gray-300"
                 }`}
                 placeholder="https://example.com"
@@ -264,9 +264,9 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
                 }
                 className={`w-full p-2 border-2 rounded transition-colors ${
                   profile.links.linkedin && !isValidUrl(profile.links.linkedin)
-                    ? "border-red-400 bg-red-50"
+                    ? "border-red-400 bg-red-50 text-red-900"
                     : profile.links.linkedin
-                      ? "border-green-400 bg-green-50"
+                      ? "border-green-400 bg-green-50 text-green-900"
                       : "border-gray-300"
                 }`}
                 placeholder="https://linkedin.com/in/username"
@@ -291,9 +291,9 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
                 }
                 className={`w-full p-2 border-2 rounded transition-colors ${
                   profile.links.facebook && !isValidUrl(profile.links.facebook)
-                    ? "border-red-400 bg-red-50"
+                    ? "border-red-400 bg-red-50 text-red-900"
                     : profile.links.facebook
-                      ? "border-green-400 bg-green-50"
+                      ? "border-green-400 bg-green-50 text-green-900"
                       : "border-gray-300"
                 }`}
                 placeholder="https://facebook.com/username"
@@ -318,9 +318,9 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
                 }
                 className={`w-full p-2 border-2 rounded transition-colors ${
                   profile.links.youtube && !isValidUrl(profile.links.youtube)
-                    ? "border-red-400 bg-red-50"
+                    ? "border-red-400 bg-red-50 text-red-900"
                     : profile.links.youtube
-                      ? "border-green-400 bg-green-50"
+                      ? "border-green-400 bg-green-50 text-green-900"
                       : "border-gray-300"
                 }`}
                 placeholder="https://youtube.com/@username"
@@ -343,9 +343,9 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
                 }
                 className={`w-full p-2 border-2 rounded transition-colors ${
                   profile.links.x && !isValidUrl(profile.links.x)
-                    ? "border-red-400 bg-red-50"
+                    ? "border-red-400 bg-red-50 text-red-900"
                     : profile.links.x
-                      ? "border-green-400 bg-green-50"
+                      ? "border-green-400 bg-green-50 text-green-900"
                       : "border-gray-300"
                 }`}
                 placeholder="https://x.com/username"
@@ -368,7 +368,7 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
             onClick={() => onUpdate({ theme: "light" })}
             className={`px-4 py-2 border-2 rounded transition-colors ${
               (profile.theme || "light") === "light"
-                ? "border-blue-500 bg-blue-50"
+                ? "border-blue-500 bg-blue-50 text-blue-900"
                 : "border-gray-300 hover:bg-gray-100"
             }`}
           >
@@ -378,7 +378,7 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
             onClick={() => onUpdate({ theme: "dark" })}
             className={`px-4 py-2 border-2 rounded transition-colors ${
               profile.theme === "dark"
-                ? "border-blue-500 bg-blue-50"
+                ? "border-blue-500 bg-blue-50 text-blue-900"
                 : "border-gray-300 hover:bg-gray-100"
             }`}
           >
@@ -388,7 +388,7 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
             onClick={() => onUpdate({ theme: "colorful" })}
             className={`px-4 py-2 border-2 rounded transition-colors ${
               profile.theme === "colorful"
-                ? "border-blue-500 bg-blue-50"
+                ? "border-blue-500 bg-blue-50 text-blue-900"
                 : "border-gray-300 hover:bg-gray-100"
             }`}
           >

@@ -47,7 +47,7 @@ export default function ProfileInfo({ profile }: ProfileInfoProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-white/80 hover:bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:text-blue-600 transition-all shadow-sm hover:shadow"
+                className="profile-link px-4 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-full text-sm font-medium text-gray-800 hover:text-blue-600 transition-all shadow-sm hover:shadow"
               >
                 {link.label}
               </a>

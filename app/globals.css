@@ -45,6 +45,18 @@
     border-color: #404040 !important;
 }
 
+/* Dark mode link buttons */
+.dark .profile-link {
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+    color: #e5e7eb !important;
+}
+
+.dark .profile-link:hover {
+    background-color: #4b5563 !important;
+    color: #93c5fd !important;
+}
+
 /* Colorful Mode */
 .colorful {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;

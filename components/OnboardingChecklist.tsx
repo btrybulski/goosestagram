@@ -1,4 +1,3 @@
-// components/OnboardingChecklist.tsx
 import { useState } from "react";
 
 interface OnboardingChecklistProps {
@@ -101,7 +100,7 @@ export default function OnboardingChecklist({
             <div
               className={`p-3 rounded-lg border-2 transition-all ${
                 hasProfileInfo
-                  ? "bg-green-50 border-green-300"
+                  ? "bg-green-100 border-green-400"
                   : "bg-gray-50 border-gray-200"
               }`}
             >
@@ -110,12 +109,16 @@ export default function OnboardingChecklist({
                   {hasProfileInfo ? "✅" : "⬜"}
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-sm">
+                  <h4
+                    className={`font-semibold text-sm ${hasProfileInfo ? "text-green-900" : "text-gray-900"}`}
+                  >
                     {hasProfileInfo
                       ? "Profile updated!"
                       : "Update your profile"}
                   </h4>
-                  <p className="text-xs text-gray-600 mt-0.5">
+                  <p
+                    className={`text-xs mt-0.5 ${hasProfileInfo ? "text-green-700" : "text-gray-600"}`}
+                  >
                     Add your name, bio, and photo
                   </p>
                   {!hasProfileInfo && (
@@ -134,17 +137,21 @@ export default function OnboardingChecklist({
             <div
               className={`p-3 rounded-lg border-2 transition-all ${
                 hasPost
-                  ? "bg-green-50 border-green-300"
+                  ? "bg-green-100 border-green-400"
                   : "bg-gray-50 border-gray-200"
               }`}
             >
               <div className="flex items-start gap-2">
                 <div className="text-lg mt-0.5">{hasPost ? "✅" : "⬜"}</div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-sm">
+                  <h4
+                    className={`font-semibold text-sm ${hasPost ? "text-green-900" : "text-gray-900"}`}
+                  >
                     {hasPost ? "First post created!" : "Create your first post"}
                   </h4>
-                  <p className="text-xs text-gray-600 mt-0.5">
+                  <p
+                    className={`text-xs mt-0.5 ${hasPost ? "text-green-700" : "text-gray-600"}`}
+                  >
                     Share something with the world
                   </p>
                   {!hasPost && (
@@ -163,7 +170,7 @@ export default function OnboardingChecklist({
             <div
               className={`p-3 rounded-lg border-2 transition-all ${
                 hasPinnedPost
-                  ? "bg-green-50 border-green-300"
+                  ? "bg-green-100 border-green-400"
                   : "bg-gray-50 border-gray-200"
               }`}
             >
@@ -172,11 +179,15 @@ export default function OnboardingChecklist({
                   {hasPinnedPost ? "✅" : "⬜"}
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-sm">
+                  <h4
+                    className={`font-semibold text-sm ${hasPinnedPost ? "text-green-900" : "text-gray-900"}`}
+                  >
                     {hasPinnedPost ? "Post pinned!" : "Pin your favorite post"}
                   </h4>
-                  <p className="text-xs text-gray-600 mt-0.5">
-                    Click "Pin" on any post to keep it at the top
+                  <p
+                    className={`text-xs mt-0.5 ${hasPinnedPost ? "text-green-700" : "text-gray-600"}`}
+                  >
+                    Click &quot;Pin&quot; on any post to keep it at the top
                   </p>
                 </div>
               </div>
