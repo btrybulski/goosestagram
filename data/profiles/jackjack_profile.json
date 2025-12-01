@@ -1,0 +1,14 @@
+{
+  "username": "jackjack",
+  "display_name": "jack",
+  "profile_photo": "canada_goose.png",
+  "bio": "yo!",
+  "links": {
+    "website": "https://google.com/jack",
+    "linkedin": "https://linkedin.com/jack",
+    "facebook": "https://facebook.com/jack",
+    "youtube": "https://youtube.com/jack",
+    "x": "https://x.com/jack"
+  },
+  "posts": []
+}

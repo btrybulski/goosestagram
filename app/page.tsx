@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import OnboardingChecklist from "@/components/OnboardingChecklist";
 import CreateProfilePrompt from "@/components/CreateProfilePrompt";
 import { useProfile } from "@/hooks/useProfile";
+import { Profile } from "@/types/profile";
 
 export default function Home() {
   const { data, updateProfile } = useProfile();
@@ -67,7 +68,7 @@ export default function Home() {
     updateProfile({ posts: updatedPosts });
   };
 
-  const handleReorderPosts = (newPosts: typeof data.posts) => {
+  const handleReorderPosts = (newPosts: Profile["posts"]) => {
     if (!data) return;
     updateProfile({ posts: newPosts });
   };

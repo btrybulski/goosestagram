@@ -1,0 +1,10 @@
+{
+  "username": "alice",
+  "display_name": "Alice",
+  "profile_photo": "",
+  "bio": "hi",
+  "links": {
+    "website": "https://google.com"
+  },
+  "posts": []
+}
