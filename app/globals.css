@@ -2,13 +2,22 @@
 
 /* Dark Mode */
 .dark {
-    background-color: #1a1a1a;
-    color: #e5e5e5;
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+.dark body {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
 }
 
 .dark .bg-white {
     background-color: #2a2a2a !important;
     border-color: #404040 !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: #1f1f1f !important;
 }
 
 .dark .text-gray-900 {
@@ -38,13 +47,22 @@
 
 /* Colorful Mode */
 .colorful {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    min-height: 100vh;
+}
+
+.colorful body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     min-height: 100vh;
 }
 
 .colorful .bg-white {
     background-color: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
+}
+
+.colorful .bg-gray-50 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .colorful header {

@@ -110,7 +110,7 @@ export default function Header({
                 animation: `float 3s ease-in-out infinite, fade 5s ease-out forwards`,
               }}
             >
-              🦆
+              🪿
             </div>
           ))}
         </div>
