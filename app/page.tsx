@@ -110,7 +110,7 @@ export default function Home() {
         showNewPostForm={showNewPostForm}
         isEditing={isEditing}
       />
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 min-h-screen">
         <div className="max-w-4xl mx-auto p-4 sm:p-8">
           {/* Onboarding Checklist */}
           {showOnboarding && (

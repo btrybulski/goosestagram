@@ -77,6 +77,36 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
     }
   };
 
+  const handleResetProfile = () => {
+    if (
+      !confirm(
+        "Are you sure you want to reset your profile? This will delete all your data including posts, and cannot be undone.",
+      )
+    ) {
+      return;
+    }
+
+    const resetProfile = {
+      username: profile.username, // Keep username
+      display_name: "",
+      profile_photo: "",
+      bio: "",
+      theme: "light" as const,
+      onboarding_completed: false,
+      links: {
+        website: "",
+        linkedin: "",
+        facebook: "",
+        youtube: "",
+        x: "",
+      },
+      posts: [],
+    };
+
+    onUpdate(resetProfile);
+    alert("Profile has been reset!");
+  };
+
   return (
     <div className="space-y-6">
       {/* Profile Photo Upload - Now at top */}
@@ -382,6 +412,12 @@ export default function ProfileEdit({ profile, onUpdate }: ProfileEditProps) {
             className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
           >
             📤 Import Profile
+          </button>
+          <button
+            onClick={handleResetProfile}
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            🔄 Reset Profile
           </button>
         </div>
 
